@@ -1,23 +1,37 @@
 package com.example.moviesx.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Result {
 
-    private Integer page;
+
+    @SerializedName("page")
+    @Expose
+    private Integer pageNumber;
+
+    @SerializedName("total_pages")
+    @Expose
     private Integer totalPages;
+
+    @SerializedName("total_results")
+    @Expose
     private Integer totalResults;
 
+    @SerializedName("results")
+    @Expose
     private List<Movie> results = null;
 
     //creating getters and setters
 
-    public Integer getPage() {
-        return page;
+    public Integer getPageNumber() {
+        return pageNumber;
     }
 
-    public void setPage(Integer page) {
-        this.page = page;
+    public void setPageNumber(Integer page) {
+        this.pageNumber = page;
     }
 
     public Integer getTotalPages() {
