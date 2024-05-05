@@ -1,4 +1,4 @@
 package com.example.moviesx.model;
 
-public class Results {
+public class Movie {
 }
