@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MoviesX</string>
     <string name="api_key">5baa9ce4e380cb8e21009fcdaea4faee</string>
+    <string name="appdesc">Get Your All Favourite Movies Here!</string>
 </resources>
