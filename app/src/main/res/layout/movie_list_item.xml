@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="movie"
+            type="com.example.moviesx.model.Movie" />
 
     </data>
 
@@ -19,6 +24,49 @@
             android:elevation="5dp"
             android:layout_gravity="center"
             app:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    bind:posterPath="@{movie.posterPath}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/movieimg"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:text="@{movie.title}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/moviename"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_below="@+id/movieimg"
+                    android:textSize="15sp"
+                    android:textColor="@color/txtcolor"/>
+                
+                <TextView
+                    android:text="@{String.valueOf(movie.voteAverage)}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/movierating"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_below="@+id/moviename"
+                    android:textSize="12sp"
+                    android:textColor="@color/txtcolor"/>
+
+
+
+
+
+
+
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 

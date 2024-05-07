@@ -9,7 +9,7 @@ public class RetrofitInstance {
      and responses should be handled*/
 
     public  static Retrofit retrofit = null;
-    private static String BASE_URL = "https://api.themoviedb.org/3";
+    private static String BASE_URL = "https://api.themoviedb.org/3/";
 
     //Getting Movie Api service
     public static MovieApiService getService() {

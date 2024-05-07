@@ -1,9 +1,19 @@
 package com.example.moviesx.model;
 
+import android.widget.ImageView;
+
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.BindingAdapter;
+
 import java.util.List;
+
+import com.bumptech.glide.Glide;
+import com.example.moviesx.BR;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Movie{
+public class Movie extends BaseObservable {
 
 	@SerializedName("overview")
 	private String overview;
@@ -24,7 +34,15 @@ public class Movie{
 	private List<Integer> genreIds;
 
 	@SerializedName("poster_path")
+	@Expose
 	private String posterPath;
+	//Adding image library
+	@BindingAdapter({"posterPath"})
+	public static void loadImage(ImageView imageView, String imageUrl){
+		String imagePath = "https://image.tmdb.org/t/p/original/"+imageUrl;
+
+		Glide.with(imageView.getContext()).load(imagePath).into(imageView);
+	}
 
 	@SerializedName("backdrop_path")
 	private String backdropPath;
@@ -81,8 +99,10 @@ public class Movie{
 
 	public void setTitle(String title){
 		this.title = title;
+		notifyPropertyChanged(BR.title);
 	}
 
+    @Bindable
 	public String getTitle(){
 		return title;
 	}
@@ -129,8 +149,10 @@ public class Movie{
 
 	public void setVoteAverage(Object voteAverage){
 		this.voteAverage = voteAverage;
+		notifyPropertyChanged(BR.voteAverage);
 	}
 
+	@Bindable
 	public Object getVoteAverage(){
 		return voteAverage;
 	}
